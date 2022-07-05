@@ -1,11 +1,14 @@
 package br.com.cursoja.controlecursoja.controller;
 
+import java.io.IOException;
+
+import br.com.cursoja.controlecursoja.model.dao.ProfessorDao;
+import br.com.cursoja.controlecursoja.model.entidade.Professor;
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
 /**
  * Servlet implementation class IniciarAlterarProfessor
@@ -26,7 +29,18 @@ public class IniciarAlterarProfessor extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		long id = 0;
+		try {
+			id = Long.parseLong(request.getParameter("id"));
+		} catch (Exception e) {
+			
+		}
+		
+		ProfessorDao dao = new ProfessorDao();
+		Professor p = dao.buscar(id);
+		request.setAttribute("professor", p);
+		RequestDispatcher rd = request.getRequestDispatcher("editar_professor.jsp");
+		rd.forward(request, response);
 	}
 
 	/**

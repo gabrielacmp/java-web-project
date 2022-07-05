@@ -1,11 +1,13 @@
 package br.com.cursoja.controlecursoja.controller;
 
+import java.io.IOException;
+
+import br.com.cursoja.controlecursoja.model.dao.ProfessorDao;
+import br.com.cursoja.controlecursoja.model.entidade.Professor;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
 /**
  * Servlet implementation class IncluirProfessor
@@ -34,7 +36,26 @@ public class IncluirProfessor extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		String nome = request.getParameter("nomeprofessor");
+		String celular = request.getParameter("celular");
+		String strValor = request.getParameter("valorhora");
+		
+		double valorhora = 0.0;
+		try {
+			valorhora = Double.parseDouble(strValor);
+		} catch (Exception e) {
+			
+		}
+		
+		Professor p = new Professor();
+		p.setNome(nome);
+		p.setCelular(celular);
+		p.setValorHora(valorhora);
+		
+		ProfessorDao dao = new ProfessorDao();
+		boolean retorno = dao.incluir(p);
+		
+		response.sendRedirect("lista_professor.jsp");
 	}
 
 }

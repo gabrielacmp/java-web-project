@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Editando Dados</title>
+<title>Editando Cursos</title>
 </head>
 <body>
 	<% 
