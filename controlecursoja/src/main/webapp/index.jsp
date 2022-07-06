@@ -8,6 +8,7 @@
 </head>
 <body>
 	<h1>Próximas Turmas</h1>
+	<a href="login.jsp">Login</a>
 	<a href="incluir_curso.jsp">Cadastro de Cursos</a>
 	<a href="lista_curso.jsp">Nossos Cursos</a>
 	<br><br>
