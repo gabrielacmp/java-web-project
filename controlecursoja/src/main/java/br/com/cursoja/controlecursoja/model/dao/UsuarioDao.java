@@ -23,7 +23,7 @@ public class UsuarioDao extends Conexao {
 				usr.setSenha(rs.getString("senha"));
 			}
 		} catch(Exception e) {
-			e.printStackTrace();;
+			e.printStackTrace();
 		} finally {
 			fecharConexao();
 		}

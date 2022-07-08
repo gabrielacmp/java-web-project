@@ -11,7 +11,9 @@
 <title>Nossos Cursos</title>
 </head>
 <body>
-	<a href="index.jsp">Voltar a página anterior</a>
+	<jsp:include page="verificaSessao.jsp"></jsp:include>
+	<a href="area_interna.jsp">Voltar a página anterior</a>
+	<a href="incluir_curso.jsp">Cadastro de Cursos</a>
 	<h1>Todos os Cursos</h1>
 	<%
 		String nomeBusca = "";

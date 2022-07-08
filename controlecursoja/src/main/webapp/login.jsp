@@ -10,7 +10,7 @@
 	<form method="post" action="LoginServlet">
 		<input type="text" name="login" placeholder="Login" required>
 		<input type="password" name="senha" placeholder="Senha" required>
-		<input type="submit" value="Enviar">
+		<input type="submit" value="Logar">
 		<input type="reset" value="Limpar">
 	</form>
 </body>
